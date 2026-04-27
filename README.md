@@ -36,7 +36,7 @@ Easily construct onboarding steps including intake forms, document requests and 
 ### 4. Client Progress Tracking
 Keep tabs on every client's journey. Identify blocked steps and send reminders with a single click.
 
-![Client Tracking](./client-list.png)
+![Client Tracking](./clients-list.png)
 
 ### 5. Secure Authentication
 Enterprise-grade security powered by **Clerk**, supporting social logins and multi-factor authentication.
