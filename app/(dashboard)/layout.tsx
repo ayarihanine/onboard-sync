@@ -13,7 +13,6 @@ import {
   Loader2,
 } from 'lucide-react';
 import { cn } from '@/lib/utils/cn';
-import { getClerkPublishableKey } from '@/lib/auth/config';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
@@ -140,38 +139,6 @@ function Header() {
 }
 
 export default function DashboardLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  const publishableKey = getClerkPublishableKey();
-  const isClerkReady =
-    typeof publishableKey === 'string' &&
-    !publishableKey.includes('placeholder') &&
-    !publishableKey.includes('xxxxxxxx') &&
-    (publishableKey.startsWith('pk_test_') ||
-      publishableKey.startsWith('pk_live_'));
-
-  if (!isClerkReady) {
-    return (
-      <div className="flex h-screen items-center justify-center bg-gray-50 p-6">
-        <div className="w-full max-w-xl rounded-lg border bg-white p-8 shadow-sm">
-          <h1 className="text-2xl font-semibold">Authentication setup required</h1>
-          <p className="mt-3 text-sm text-muted-foreground">
-            The dashboard depends on Clerk, but this environment is still using placeholder keys in <code>.env</code>.
-          </p>
-          <p className="mt-2 text-sm text-muted-foreground">
-            Set <code>NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY</code> and <code>CLERK_SECRET_KEY</code>, then reload the app.
-          </p>
-        </div>
-      </div>
-    );
-  }
-
-  return <ConfiguredDashboardLayout>{children}</ConfiguredDashboardLayout>;
-}
-
-function ConfiguredDashboardLayout({
   children,
 }: {
   children: React.ReactNode;
