@@ -111,3 +111,4 @@ The system uses a relational schema optimized for multi-tenancy:
 
 ## License
  See `package.json` for more details.
+\nContributing to open source!
